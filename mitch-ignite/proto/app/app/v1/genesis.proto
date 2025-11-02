@@ -1,0 +1,17 @@
+syntax = "proto3";
+package app.app.v1;
+
+import "amino/amino.proto";
+import "gogoproto/gogo.proto";
+import "app/app/v1/params.proto";
+
+option go_package = "github.com/mitch-chain/app/x/app/types";
+
+// GenesisState defines the app module's genesis state.
+message GenesisState {
+  // params defines all the parameters of the module.
+  Params params = 1 [
+    (gogoproto.nullable) = false,
+    (amino.dont_omitempty) = true
+  ];
+}
